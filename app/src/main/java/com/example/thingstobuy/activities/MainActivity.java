@@ -1,9 +1,11 @@
-package com.example.thingstobuy;
+package com.example.thingstobuy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.FrameLayout;
+
+import com.example.thingstobuy.R;
 
 public class MainActivity extends AppCompatActivity {
 

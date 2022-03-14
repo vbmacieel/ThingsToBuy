@@ -1,10 +1,20 @@
 package com.example.thingstobuy.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Product {
+    @PrimaryKey
     private long id;
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "siteUrl")
     private String siteUrl;
+    @ColumnInfo(name = "imagePath")
     private String imagePath;
+    @ColumnInfo(name = "value")
     private double value;
 
     public Product(long id, String name, String siteUrl, String imagePath, double value) {
