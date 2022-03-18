@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="12dp">
+
+    <TextView
+        android:id="@+id/form_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Product"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/form_product_title_and_value"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:layout_constraintTop_toBottomOf="@id/form_title"
+        android:layout_margin="12dp"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/product_form_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Product name"
+            android:layout_marginRight="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/product_form_value"/>
+
+        <EditText
+            android:id="@+id/product_form_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Product Value"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/product_form_title"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/product_form_site_url"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Product site link"
+        app:layout_constraintTop_toBottomOf="@+id/form_product_title_and_value"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/product_form_img"
+        android:layout_margin="12dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Product image link"
+        app:layout_constraintTop_toBottomOf="@+id/product_form_site_url"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_create_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New product"
+        app:layout_constraintTop_toBottomOf="@id/product_form_img"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
