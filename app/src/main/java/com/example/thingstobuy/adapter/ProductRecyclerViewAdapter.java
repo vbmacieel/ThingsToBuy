@@ -18,12 +18,20 @@ import java.util.List;
 
 public class ProductRecyclerViewAdapter extends
         RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder> {
-    private final List<Product> productList;
+    private List<Product> productList;
     private final Context context;
 
-    public ProductRecyclerViewAdapter(List<Product> productList, Context context) {
-        this.productList = productList;
+    public ProductRecyclerViewAdapter(Context context) {
+        this.productList = getProductList();
         this.context = context;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
     @NonNull
@@ -38,26 +46,27 @@ public class ProductRecyclerViewAdapter extends
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.productName.setText(product.getName());
-        holder.productUrl.setText(product.getSiteUrl());
         holder.productValue.setText((int) product.getValue());
         Picasso.get().load(product.getImagePath()).into(holder.productImageUrl);
     }
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        if (productList == null) {
+            return 0;
+        } else {
+            return productList.size();
+        }
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         private final TextView productName;
-        private final TextView productUrl;
         private final TextView productValue;
         private final ImageView productImageUrl;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             productName = itemView.findViewById(R.id.product_name);
-            productUrl = itemView.findViewById(R.id.product_url);
             productValue = itemView.findViewById(R.id.product_value);
             productImageUrl = itemView.findViewById(R.id.product_image);
         }
