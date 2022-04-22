@@ -1,4 +1,4 @@
-package com.example.thingstobuy.fragments;
+package com.example.thingstobuy.ui.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.room.Room;
 
 import com.example.thingstobuy.R;
 import com.example.thingstobuy.db.ProductDatabase;

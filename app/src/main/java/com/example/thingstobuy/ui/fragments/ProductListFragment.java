@@ -1,4 +1,4 @@
-package com.example.thingstobuy.fragments;
+package com.example.thingstobuy.ui.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,13 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thingstobuy.R;
 import com.example.thingstobuy.adapter.ProductRecyclerViewAdapter;
-import com.example.thingstobuy.viewModels.ProductDatabaseViewModel;
+import com.example.thingstobuy.model.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductListFragment extends Fragment {
     private FloatingActionButton fabNewProduct;
     private ProductRecyclerViewAdapter productRecyclerViewAdapter;
-    private ProductDatabaseViewModel productDatabaseViewModel;
 
     @Nullable
     @Override
@@ -46,17 +48,11 @@ public class ProductListFragment extends Fragment {
     }
 
     private void creatingRecyclerView(View view) {
+        List<Product> productList = new ArrayList<>();
         RecyclerView recyclerViewProducts = view.findViewById(R.id.recycler_view_products);
-        productRecyclerViewAdapter = new ProductRecyclerViewAdapter(requireContext());
-        setProductAdapter();
+        productRecyclerViewAdapter = new ProductRecyclerViewAdapter(productList);
         recyclerViewProducts.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerViewProducts.setAdapter(productRecyclerViewAdapter);
-    }
-
-    private void setProductAdapter() {
-        productDatabaseViewModel = new ProductDatabaseViewModel(getActivity().getApplication());
-        productDatabaseViewModel.getmProductList().observe(getViewLifecycleOwner(),
-                products -> productRecyclerViewAdapter.setProductList(products));
     }
 
     private void setUi(View view) {

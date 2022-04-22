@@ -1,4 +1,4 @@
-package com.example.thingstobuy.activities;
+package com.example.thingstobuy.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.thingstobuy.R;
-import com.example.thingstobuy.fragments.ProductListFragment;
+import com.example.thingstobuy.ui.fragments.ProductListFragment;
 
 public class MainActivity extends AppCompatActivity {
 

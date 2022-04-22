@@ -1,6 +1,5 @@
 package com.example.thingstobuy.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,20 +17,10 @@ import java.util.List;
 
 public class ProductRecyclerViewAdapter extends
         RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder> {
-    private List<Product> productList;
-    private final Context context;
+    private final List<Product> productList;
 
-    public ProductRecyclerViewAdapter(Context context) {
-        this.productList = getProductList();
-        this.context = context;
-    }
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public ProductRecyclerViewAdapter(List<Product> products) {
+        this.productList = products;
     }
 
     @NonNull
@@ -52,11 +41,7 @@ public class ProductRecyclerViewAdapter extends
 
     @Override
     public int getItemCount() {
-        if (productList == null) {
-            return 0;
-        } else {
-            return productList.size();
-        }
+        return productList == null ? 0 : productList.size();
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
