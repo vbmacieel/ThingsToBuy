@@ -12,15 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.thingstobuy.R;
-import com.example.thingstobuy.db.ProductDatabase;
 
 public class ProductFormFragment extends Fragment {
-
-    private EditText productFormTitle;
-    private EditText productFormValue;
-    private EditText productFormUrl;
-    private EditText productFormImg;
-    private Button btnAddNewProduct;
+    private EditText mProductTitle;
+    private EditText mProductValue;
+    private EditText mProductUrl;
+    private EditText mProductImg;
+    private Button mBtnAddNewProduct;
 
     @Nullable
     @Override
@@ -33,10 +31,10 @@ public class ProductFormFragment extends Fragment {
     }
 
     private void initUi(View view) {
-        productFormTitle = view.findViewById(R.id.product_form_title);
-        productFormValue = view.findViewById(R.id.product_form_value);
-        productFormUrl = view.findViewById(R.id.product_form_site_url);
-        productFormImg = view.findViewById(R.id.product_form_img);
-        btnAddNewProduct = view.findViewById(R.id.btn_create_product);
+        mProductTitle = view.findViewById(R.id.product_form_title);
+        mProductValue = view.findViewById(R.id.product_form_value);
+        mProductUrl = view.findViewById(R.id.product_form_site_url);
+        mProductImg = view.findViewById(R.id.product_form_img);
+        mBtnAddNewProduct = view.findViewById(R.id.btn_create_product);
     }
 }

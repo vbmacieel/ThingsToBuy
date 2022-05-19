@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductListFragment extends Fragment {
-    private FloatingActionButton fabNewProduct;
-    private ProductRecyclerViewAdapter productRecyclerViewAdapter;
+    private FloatingActionButton mFabNewProducts;
+    private ProductRecyclerViewAdapter mProductsRecyclerViewAdapter;
 
     @Nullable
     @Override
@@ -38,9 +38,9 @@ public class ProductListFragment extends Fragment {
     }
 
     private void fabChangeFragment() {
-        fabNewProduct.setOnClickListener(view -> {
+        mFabNewProducts.setOnClickListener(view -> {
             ProductFormFragment productFormFragment = new ProductFormFragment();
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getParentFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fl_fragment, productFormFragment, null)
                     .commit();
@@ -50,13 +50,13 @@ public class ProductListFragment extends Fragment {
     private void creatingRecyclerView(View view) {
         List<Product> productList = new ArrayList<>();
         RecyclerView recyclerViewProducts = view.findViewById(R.id.recycler_view_products);
-        productRecyclerViewAdapter = new ProductRecyclerViewAdapter(productList);
+        mProductsRecyclerViewAdapter = new ProductRecyclerViewAdapter(productList);
         recyclerViewProducts.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerViewProducts.setAdapter(productRecyclerViewAdapter);
+        recyclerViewProducts.setAdapter(mProductsRecyclerViewAdapter);
     }
 
     private void setUi(View view) {
-        fabNewProduct = view.findViewById(R.id.fab_new_product);
-        fabNewProduct.setImageResource(R.drawable.ic_add);
+        mFabNewProducts = view.findViewById(R.id.fab_new_product);
+        mFabNewProducts.setImageResource(R.drawable.ic_add);
     }
 }

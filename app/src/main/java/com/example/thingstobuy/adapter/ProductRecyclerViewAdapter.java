@@ -17,10 +17,10 @@ import java.util.List;
 
 public class ProductRecyclerViewAdapter extends
         RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder> {
-    private final List<Product> productList;
+    private final List<Product> mProductList;
 
     public ProductRecyclerViewAdapter(List<Product> products) {
-        this.productList = products;
+        this.mProductList = products;
     }
 
     @NonNull
@@ -33,7 +33,7 @@ public class ProductRecyclerViewAdapter extends
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = productList.get(position);
+        Product product = mProductList.get(position);
         holder.productName.setText(product.getName());
         holder.productValue.setText((int) product.getValue());
         Picasso.get().load(product.getImagePath()).into(holder.productImageUrl);
@@ -41,7 +41,7 @@ public class ProductRecyclerViewAdapter extends
 
     @Override
     public int getItemCount() {
-        return productList == null ? 0 : productList.size();
+        return mProductList == null ? 0 : mProductList.size();
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
